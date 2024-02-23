@@ -1,0 +1,29 @@
+.main {
+	padding: 0rem 1rem;
+	margin: 0rem 10rem;
+}
+
+.main button {
+	margin-bottom: 1rem;
+}
+
+.workshop_form {
+	display: flex;
+	flex-direction: column;
+}
+
+.workshop_form div {
+	margin-bottom: 0.5rem;
+}
+
+.workshop_form button {
+	width: 7rem;
+}
+
+.submit_btn{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
