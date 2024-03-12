@@ -1,11 +1,17 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IWorkShopCardItem } from '../../interfaces/IWorkShopCard';
-import { Button } from '@mui/material';
+import {
+	Button,
+	
+} from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import styles from './WorkShopInfo.module.css';
+import { WorkShopInfoList } from '../WorkShopInfoList/WorkShopInfoList';
+
 
 interface Props {
 	workshopArray: IWorkShopCardItem[];
@@ -16,8 +22,9 @@ export const WorkShopInfo: React.FC<Props> = ({
 }): ReactElement => {
 	const navigate = useNavigate();
 	const { workshopId } = useParams();
-	const workshop = workshopArray[workshopId];
-	console.log(workshop);
+	const workshop =
+		workshopId !== undefined ? workshopArray[parseInt(workshopId, 10)] : null;
+
 	return (
 		<main className={styles.workshop_info}>
 			<section className={styles.head_section}>
@@ -27,6 +34,9 @@ export const WorkShopInfo: React.FC<Props> = ({
 					</Button>
 				</div>
 				<div>
+					<Button onClick={() => navigate(`/workshop/${workshopId}/stats`)}>
+						<QueryStatsIcon />
+					</Button>
 					<Button>
 						<EditIcon />
 					</Button>
@@ -35,20 +45,7 @@ export const WorkShopInfo: React.FC<Props> = ({
 					</Button>
 				</div>
 			</section>
-			<section className={styles.main_section}>
-				<h2>Title: {workshop.title}</h2>
-				<span>Id: {workshop.id}</span>
-				<p>Date: {workshop.date}</p>
-				<p>Description: {workshop.description}</p>
-				<p>Department: {workshop.department}</p>
-				<p>Semester: {workshop.semester}</p>
-				<p>Instructor: {workshop.instructor}</p>
-				<p>Duration: {workshop.duration}</p>
-				<p>Attendace: {workshop.attendance}</p>
-                <p>Price: {workshop.isFree ? 'Free' : workshop.price}</p>
-                <p>Notes: </p>
-                <p>Number Of Registered Students: </p>
-			</section>
+			<WorkShopInfoList workshop={workshop}/>
 		</main>
 	);
 };

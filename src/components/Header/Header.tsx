@@ -8,7 +8,7 @@ export const Header = ():ReactElement =>{
     return <header className={styles.header}>
         <div className={styles.logo_container}>
             <Typography  className={styles.logo}>
-                CPC
+                MUCPC
             </Typography>
         </div>
 

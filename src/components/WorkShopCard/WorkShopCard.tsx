@@ -24,14 +24,14 @@ export const WorkShopCard: React.FC<Props> = ({ workShop, id }): ReactElement =>
 			borderRadius:'10px',
 			}}>
 				<CardHeader title={workShop.title} subheader={workShop.date} />
-				<CardMedia
+				{/* <CardMedia
 					sx={{ height: 180 , 
 					paddingLeft:'5px',
 					paddingRight:'5px'
 				}}
 					component={'img'}
 					image={!workShop.img ? './../../../public/default.jpg' : workShop.img}
-				/>
+				/> */}
 				<CardContent
 					sx={{
 						width: '100%',

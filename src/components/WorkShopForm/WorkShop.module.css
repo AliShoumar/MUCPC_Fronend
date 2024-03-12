@@ -1,29 +1,33 @@
 .main {
 	padding: 0rem 1rem;
-	margin: 0rem 10rem;
+	margin: 0rem 4rem;
 }
-
-.main button {
-	margin-bottom: 1rem;
+.container{
+	display: flex;
+	flex-direction: row;
 }
-
-.workshop_form {
+.leftSection{
+	height: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
 
-.workshop_form div {
-	margin-bottom: 0.5rem;
-}
-
-.workshop_form button {
-	width: 7rem;
+.rightSection{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .submit_btn{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: center;
+	margin: 1.5rem 0rem;
 }
 
+.main section div{
+	margin: 0.2rem 0.4rem;
+}

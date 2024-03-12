@@ -10,6 +10,7 @@ import { WorkShopList } from './components/WorkShopList/WorkShopList';
 import { IWorkShopCardItem } from './interfaces/IWorkShopCard';
 import { WorkShopForm } from './components/WorkShopForm/WorkShopForm';
 import { WorkShopInfo } from './components/WorkShopInfo/WorkShopInfo';
+import { WorkShopStatsPage } from './pages/WorkShopStats/WorkShopStatsPage';
 
 const workshopArray: IWorkShopCardItem[] = [
 	{
@@ -19,10 +20,9 @@ const workshopArray: IWorkShopCardItem[] = [
 		isFree: true,
 		duration: '2 hours',
 		startTime: '2:00 pm',
-		department:'Science',
-		semester:'Fall',
-		attendance:'Online',
-
+		department: 'Science',
+		semester: 'Fall',
+		attendance: 'Online',
 	},
 	{
 		title: 'Bit N Build Hackathon',
@@ -31,9 +31,10 @@ const workshopArray: IWorkShopCardItem[] = [
 		isFree: true,
 		duration: '6 hours',
 		startTime: '12:00 pm',
-		department:'Science',
-		semester:'Fall',
-		attendance:'Online',
+		department: 'Science',
+		semester: 'Fall',
+		attendance: 'Online',
+		registrationLink:'kdasfajlkd'
 	},
 	{
 		title: 'Cyber Security',
@@ -42,9 +43,9 @@ const workshopArray: IWorkShopCardItem[] = [
 		isFree: true,
 		duration: '3 hours',
 		startTime: '2:00 pm',
-		department:'Science',
-		semester:'Fall',
-		attendance:'Online',
+		department: 'Science',
+		semester: 'Fall',
+		attendance: 'Online',
 	},
 	{
 		title: 'KickOff Event',
@@ -53,9 +54,9 @@ const workshopArray: IWorkShopCardItem[] = [
 		isFree: true,
 		duration: '1 hour',
 		startTime: '3:30 pm',
-		department:'Science',
-		semester:'Fall',
-		attendance:'Online',
+		department: 'Science',
+		semester: 'Fall',
+		attendance: 'Online',
 	},
 ];
 
@@ -76,10 +77,13 @@ export const App = (): ReactElement => {
 							element={<WorkShopList workshopArray={workshopArray} />}
 						/>
 						<Route path="new" element={<WorkShopForm />} />
-						<Route
-							path=":workshopId"
-							element={<WorkShopInfo workshopArray={workshopArray} />}
-						/>
+						<Route path=":workshopId">
+							<Route
+								index
+								element={<WorkShopInfo workshopArray={workshopArray} />}
+							/>
+							<Route path='stats' element={<WorkShopStatsPage/>}/>
+						</Route>
 					</Route>
 					<Route path="*" element={<h4>404 Working on it ;)</h4>} />
 				</Routes>
